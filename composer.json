@@ -1,0 +1,13 @@
+{
+    "name": "tillotech/interview2020",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michael Norris",
+            "email": "michael@tillo.io"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
+    }
+}
