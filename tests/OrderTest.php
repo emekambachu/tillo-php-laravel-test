@@ -1,13 +1,16 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-require __DIR__ . '/Order.php';
+
+require __DIR__ . '/../Order.php';
 
 class OrderTest extends TestCase {
 
     private array $orders;
+    private Order $order;
 
     protected function setUp(): void {
+        $this->order = new Order();
         // Sample orders array to test
         $this->orders = [
             [
@@ -51,45 +54,43 @@ class OrderTest extends TestCase {
 
     public function testCountTotalOrders(): void
     {
-        $order = new Order();
-        $this->assertGreaterThanOrEqual(0, $order->countTotalOrders($this->orders));
-        $this->assertEquals(count($this->orders), $order->countTotalOrders($this->orders));
+        $this->assertGreaterThanOrEqual(0, $this->order->countTotalOrders($this->orders));
+        $this->assertEquals(count($this->orders), $this->order->countTotalOrders($this->orders));
     }
 
     public function testCountFreeOrders(): void
     {
-        $order = new Order();
-        $this->assertEquals(1, $order->countFreeOrders($this->orders));
+        $this->assertEquals(1, $this->order->countFreeOrders($this->orders));
     }
 
     public function testCountOrdersInGBP(): void
     {
-        $order = new Order();
-        $this->assertEquals(4, $order->countOrdersInGBP($this->orders));
+        $this->assertEquals(4, $this->order->countOrdersInGBP($this->orders));
     }
 
     public function testCountOrdersShippedToEssex(): void
     {
-        $order = new Order();
-        $this->assertEquals(4, $order->countOrdersShippedToEssex($this->orders));
+        $this->assertEquals(4, $this->order->countOrdersShippedToEssex($this->orders));
     }
 
     public function testSumOrdersInGBPAndAbove100(): void
     {
-        $order = new Order();
-        $this->assertGreaterThanOrEqual(100, $order->sumOrdersInGBPAndAbove100($this->orders));
-        $this->assertEquals(350.00, $order->sumOrdersInGBPAndAbove100($this->orders));
+        $this->assertGreaterThanOrEqual(100, $this->order->sumOrdersInGBPAndAbove100($this->orders));
+        $this->assertEquals(350.00, $this->order->sumOrdersInGBPAndAbove100($this->orders));
     }
 
     public function testSumOrdersInGBP(): void
     {
-        $order = new Order();
-        $this->assertEquals(400.00, $order->sumOrdersInGBP($this->orders));
+        $this->assertEquals(400.00, $this->order->sumOrdersInGBP($this->orders));
     }
 
     public function testSumOrdersInGBPAndShippedToEssex(): void
     {
-        $order = new Order();
-        $this->assertEquals(250.00, $order->sumOrdersInGBPAndShippedToEssex($this->orders));
+        $this->assertEquals(250.00, $this->order->sumOrdersInGBPAndShippedToEssex($this->orders));
+    }
+
+    public function testOrderIsNotEmpty(): void
+    {
+        $this->assertNotEmpty($this->order->getOrders());
     }
 }

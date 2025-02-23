@@ -3,6 +3,9 @@
 class Order {
     private $orders;
 
+    /**
+     * @throws JsonException
+     */
     public function __construct() {
         $this->orders = json_decode(file_get_contents(__DIR__ . '/' . 'orders.json'), true, 512, JSON_THROW_ON_ERROR);
     }
