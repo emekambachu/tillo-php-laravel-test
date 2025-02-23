@@ -52,7 +52,7 @@ $data = $order->displayOrders();
                     FREE
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    <?php echo $data['countOrders']; ?>
+                    <?php echo $data['countFreeOrders']; ?>
                   </dd>
                 </dl>
               </div>
