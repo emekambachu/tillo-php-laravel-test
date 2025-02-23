@@ -18,35 +18,45 @@ class OrderTest extends TestCase {
                 "currency" => "GBP",
                 "price" => "50.00",
                 "customer" => [
-                    "shipping_address" => ["county" => "Essex"]
+                    "shipping_address" => [
+                        "county" => "Essex"
+                    ]
                 ]
             ],
             [
                 "currency" => "USD",
                 "price" => "100.00",
                 "customer" => [
-                    "shipping_address" => ["county" => "Essex"]
+                    "shipping_address" => [
+                        "county" => "Essex"
+                    ]
                 ]
             ],
             [
                 "currency" => "GBP",
                 "price" => "200.00",
                 "customer" => [
-                    "shipping_address" => ["county" => "Essex"]
+                    "shipping_address" => [
+                        "county" => "Essex"
+                    ]
                 ]
             ],
             [
                 "currency" => "GBP",
                 "price" => "150.00",
                 "customer" => [
-                    "shipping_address" => ["county" => "London"]
+                    "shipping_address" => [
+                        "county" => "London"
+                    ]
                 ]
             ],
             [
                 "currency" => "GBP",
                 "price" => "0.00",
                 "customer" => [
-                    "shipping_address" => ["county" => "Essex"]
+                    "shipping_address" => [
+                        "county" => "Essex"
+                    ]
                 ]
             ]
         ];

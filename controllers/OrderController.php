@@ -16,7 +16,6 @@ class OrderController
     public function displayOrders(): array
     {
         return [
-            'countOrders' => $this->orders->countTotalOrders($this->orders->getOrders()),
             'countFreeOrders' => $this->orders->countFreeOrders($this->orders->getOrders()),
             'countOrdersInGBP' => $this->orders->countOrdersInGBP($this->orders->getOrders()),
             'countOrdersShippedToEssex' => $this->orders->countOrdersShippedToEssex($this->orders->getOrders()),
