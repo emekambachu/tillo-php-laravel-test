@@ -1,8 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use services\Order;
 
-require __DIR__ . '/../Order.php';
+require __DIR__ . '/../services/Order.php';
 
 class OrderTest extends TestCase {
 

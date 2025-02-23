@@ -1,15 +1,11 @@
 <?php
-require_once 'Order.php';
-$order = new Order();
 
-$countOrders = $order->countTotalOrders($order->getOrders());
-$countFreeOrders = $order->countFreeOrders($order->getOrders());
-$countOrdersInGBP = $order->countOrdersInGBP($order->getOrders());
-$countOrdersShippedToEssex = $order->countOrdersShippedToEssex($order->getOrders());
-$totalOrdersInGBPAndAbove100 = $order->sumOrdersInGBPAndAbove100($order->getOrders());
-$totalOrdersInGBP = $order->sumOrdersInGBP($order->getOrders());
-$totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($order->getOrders());
+use controllers\OrderController;
 
+require_once 'controllers/OrderController.php';
+
+$order = new OrderController();
+$data = $order->displayOrders();
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +52,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     FREE
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    <?php echo $countFreeOrders; ?>
+                    <?php echo $data['countOrders']; ?>
                   </dd>
                 </dl>
               </div>
@@ -68,7 +64,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     Placed in GBP
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    <?php echo $countOrdersInGBP; ?>
+                    <?php echo $data['countOrdersInGBP']; ?>
                   </dd>
                 </dl>
               </div>
@@ -80,7 +76,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     Shipped to Essex
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    <?php echo $countOrdersShippedToEssex; ?>
+                    <?php echo $data['countOrdersShippedToEssex']; ?>
                   </dd>
                 </dl>
               </div>
@@ -99,7 +95,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     Placed in GBP and were £100 or more
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    £<?php echo number_format($totalOrdersInGBPAndAbove100, 2); ?>
+                    £<?php echo number_format($data['totalOrdersInGBPAndAbove100'], 2); ?>
                   </dd>
                 </dl>
               </div>
@@ -111,7 +107,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     Placed in GBP
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    £<?php echo number_format($totalOrdersInGBP, 2); ?>
+                    £<?php echo number_format($data['totalOrdersInGBP'], 2); ?>
                   </dd>
                 </dl>
               </div>
@@ -123,7 +119,7 @@ $totalOrdersInGBPAndShippedToEssex = $order->sumOrdersInGBPAndShippedToEssex($or
                     Placed in GBP and were shipped to Essex
                   </dt>
                   <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
-                    £<?php echo number_format($totalOrdersInGBPAndShippedToEssex, 2); ?>
+                    £<?php echo number_format($data['totalOrdersInGBPAndShippedToEssex'], 2); ?>
                   </dd>
                 </dl>
               </div>
